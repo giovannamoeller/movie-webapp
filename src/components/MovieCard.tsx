@@ -1,20 +1,23 @@
 import { Movie } from "../types/Movie"
 
-/*interface MovieCardProps {
+interface MovieCardProps {
     movie: Movie;
-}*/
+}
 
-export function MovieCard() {
+export function MovieCard({ movie }: MovieCardProps) {
+
+    const { title, poster_path, vote_average, overview } = movie;
+
     return (
         <div>
             <img 
-                src="https://m.media-amazon.com/images/M/MV5BMzJiN2UyZjgtMjQ3MS00MDhhLTg5ZDItZmVjMTU3MTcwNzE4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-                alt="Trap movie poster"
+                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                alt={`${title} poster`}
                 className="w-full h-72 object-cover"/>
             <div className="text-left">
-                <p className="text-xl font-bold mt-4">Trap</p>
-                <p className="text-lg text-cyan-900 mt-1">Mystery, 6.5</p>
-                <p className="mt-4 text-neutral-700">Lead backend dev at Clearbit. Former Clearbit and Loom.</p>
+                <p className="text-xl font-bold mt-4 line-clamp-1">{title}</p>
+                <p className="text-lg text-cyan-900 mt-1">Mystery, {vote_average.toFixed(1)}</p>
+                <p className="mt-4 text-neutral-700 line-clamp-3">{overview}</p>
             </div>
         </div>
     )
