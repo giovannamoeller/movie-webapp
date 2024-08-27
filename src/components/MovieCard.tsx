@@ -9,12 +9,8 @@ export function MovieCard({ movie }: MovieCardProps) {
 
     const { title, poster_path, vote_average, overview, genre_ids } = movie;
 
-    function getGenre() {
-        let genres: string = '';
-        for (let i = 0; i < Math.min(genre_ids.length, 2); i++) {
-            genres += Genres[genre_ids[i]] + ', ';
-        }
-        return genres.slice(0, -2);
+    function getGenre(maxGenres: number = 2): string {
+        return genre_ids.slice(0, maxGenres).map(genreId => Genres[genreId]).join(', ');
     }
 
     return (
