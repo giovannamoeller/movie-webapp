@@ -3,9 +3,10 @@ import { Genres } from "../types/Genre";
 
 type MovieCardProps = {
     movie: Movie;
+    onSelect: () => void;
 };
 
-export function MovieCard({ movie }: MovieCardProps) {
+export function MovieCard({ movie, onSelect }: MovieCardProps) {
     const { title, poster_path, vote_average, overview, genre_ids } = movie;
 
     function getGenre(maxGenres: number = 2): string {
@@ -13,7 +14,9 @@ export function MovieCard({ movie }: MovieCardProps) {
     };
 
     return (
-        <div>
+        <div 
+            onClick={onSelect} 
+            className="cursor-pointer">
             <img 
                 src={`https://image.tmdb.org/t/p/w500${poster_path}`}
                 alt={`${title} poster`}
