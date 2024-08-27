@@ -18,4 +18,4 @@ export enum Genres {
     Thriller = 53,
     War = 10752,
     Western = 37
-}
+};

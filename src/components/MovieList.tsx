@@ -4,7 +4,6 @@ import { getPopularMovies } from "../services/movieApiService";
 import { MovieCard } from "./MovieCard";
 
 export function MovieList() {
-
     const [movies, setMovies] = useState<Movie[]>([]);
 
     useEffect(() => {
@@ -25,5 +24,5 @@ export function MovieList() {
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};

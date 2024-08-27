@@ -1,4 +1,4 @@
-import { Movie } from "../types/Movie"
+import { Movie } from "../types/Movie";
 import { Genres } from "../types/Genre";
 
 type MovieCardProps = {
@@ -6,12 +6,11 @@ type MovieCardProps = {
 };
 
 export function MovieCard({ movie }: MovieCardProps) {
-
     const { title, poster_path, vote_average, overview, genre_ids } = movie;
 
     function getGenre(maxGenres: number = 2): string {
         return genre_ids.slice(0, maxGenres).map(genreId => Genres[genreId]).join(', ');
-    }
+    };
 
     return (
         <div>
@@ -25,5 +24,5 @@ export function MovieCard({ movie }: MovieCardProps) {
                 <p className="mt-4 text-neutral-700 line-clamp-3">{overview}</p>
             </div>
         </div>
-    )
-}
+    );
+};

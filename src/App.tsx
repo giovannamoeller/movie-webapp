@@ -1,10 +1,10 @@
-import './App.css'
-import { MovieList } from "./components/MovieList"
+import "./App.css";
+import { MovieList } from "./components/MovieList";
 
 function App() {
   return (
     <MovieList/>
-  )
-}
+  );
+};
 
-export default App
+export default App;
