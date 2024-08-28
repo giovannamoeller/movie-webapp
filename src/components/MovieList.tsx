@@ -36,8 +36,18 @@ export function MovieList() {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}>
                 {selectedMovie && (
-                    <div>
-                        <h2 className="text-3xl font-bold">{selectedMovie.title}</h2>
+                    <div className="flex gap-16 p-8">
+                        <div>
+                            <img 
+                                src={`https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`}
+                                className="rounded-md"/>
+                        </div>
+                        
+                        <div className="max-w-md text-left">
+                            <h2 className="text-4xl font-bold">{selectedMovie.title}</h2>
+                            <p className="my-4 text-cyan-900 font-bold text-lg">{selectedMovie.release_date.slice(0, 4)} | {selectedMovie.vote_average.toFixed(1)}</p>
+                            <p className="text-gray-600 text-lg">{selectedMovie.overview}</p>
+                        </div>
                     </div>
                 )}
             </Modal>
